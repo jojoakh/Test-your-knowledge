@@ -14,20 +14,33 @@ body {
     text-align: center;
     color: whitesmoke;
     font-size: larger;
-    letter-spacing: 1.5px;
+    letter-spacing: 2.0px;
+    height: 100%;
+    padding: 20px;
     
     
 }
 
 
 header {
-    padding: 4px;
+    padding: 15px;
 }
 
-div {
-    padding: 4px;
+.quiz-area {
+    line-height: 3em;
+}
+p {
+    line-height: 2em;
 }
 
 footer {
     display: flex;
+    text-align: center;
+   justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+    font-size: 100%;
+    font-weight: bolder;
+    margin-bottom: auto;
+    
 }
