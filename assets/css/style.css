@@ -57,12 +57,22 @@ p {
 button {
     line-height: 2em;
     background-color: brown;
+    gap: 12px;
   
 }
 
 .hide {
     display: none;
   }
+.answers-buttons {
+border-radius: 15px;
+  padding: 5px 10px;
+  color: white;
+  display: grid;
+  gap: 12px;
+
+  
+}
 
 footer {
     display: flex;
