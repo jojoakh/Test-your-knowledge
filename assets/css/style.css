@@ -55,21 +55,26 @@ p {
     line-height: 2em;
 }
 button {
-    line-height: 2em;
+    line-height: 3em;
     background-color: brown;
-    gap: 12px;
+    gap: 30px;
+    color: white;
+    
   
 }
 
 .hide {
     display: none;
+   
   }
-.answers-buttons {
-border-radius: 15px;
-  padding: 5px 10px;
-  color: white;
-  display: grid;
-  gap: 12px;
+.option-btn {
+    width: 800px;
+    max-width: 80%;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    gap: 30px;
+    
 
   
 }
