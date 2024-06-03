@@ -10,15 +10,15 @@
 <body>
 
     <header>
-        <div class="logo">
+        <div class="home">
             <h1>
                 Test Your Knowledge
             </h1>
             <img src="assets/images/header-image.jpg" alt="World map on the wall">
         </div>
     </header>
-    <main class="quiz-area">
-        <div>
+        <div class="container">
+        <div class="start-section" id="start-section">
           <h2>
             Geography Quiz Challenge
           </h2>
@@ -27,22 +27,25 @@
           </p> 
           <p>Here is an opportunity to test your Knowledge,</p> 
           <p>Answer the following questions within the given time.</p>
+        </div>
          
-          <button>
+          <div id="start-btn" class="start-btn btn"><button>
             Start Quiz
           </button>
+          
         </div>
+       
+         <div class="hide" id="question-section">
+            <div id="question">Question</div>
+            <div id="answer-buttons" class="answer-buttons">
+              <button class="btn">Option 1</button>
+              <button class="btn">Option 2</button>
+              <button class="btn">Option 3</button>
+              <button class="btn">Option 4</button>
+            </div>
+         </div>
         
-        <div class="hide">
-            <p>Please enter your username to begin:
-                <input type="text" id="name">
-                <button>
-                    Begin
-                </button>
-
-            </p>
-        </div>
-    </main>
+    
     <footer>
         <div class="scores">
             <button id="view-scores">View Scores</button>
@@ -53,11 +56,12 @@
                 Time
                 <span id="timer">0</span>
             </p>
-           
+        </div>
 
         </div>
-        
     </footer>
+
+  
     <script src="assets/js/script.js"></script>
 </body>
 </html>

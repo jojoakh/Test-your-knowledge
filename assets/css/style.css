@@ -47,13 +47,10 @@ h1 {
     unicode-bidi: isolate;
 }
 
-main {
-    text-align: center;
-}
 
-.quiz-area {
-    line-height: 3em;
-}
+
+
+
 p {
     line-height: 2em;
 }
@@ -62,6 +59,10 @@ button {
     background-color: brown;
   
 }
+
+.hide {
+    display: none;
+  }
 
 footer {
     display: flex;
@@ -76,10 +77,6 @@ footer {
 }
 
 @media screen and (min-width: 995px) {
-   img {
-    
-   width: 50%;
-
-   }
+   
 
 }
