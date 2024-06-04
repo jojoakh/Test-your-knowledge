@@ -1,73 +1,75 @@
-const startButton = document.getElementById('start-btn')
-const questionSection = document.getElementById('question-section')
+window.addEventListener('DOMContentLoaded', function() {
+    const startButton = document.getElementById('start-btn'); // Line 1: Select start button
+    const questionSection = document.getElementById('question-section');
+    const answersButtonsElement = document.getElementById('answers-buttons');
+    const questionElement = document.getElementById('question');
+  
+    let shuffledQuestions, currentQuestionIndex;
+  
+    startButton.addEventListener('click', startQuiz);
+  
+    function startQuiz() {
+      console.log("started");
+      startButton.classList.add('hide');
+      shuffledQuestions = questions.sort(() => Math.random() - .5);
+      currentQuestionIndex = 0;
+      questionSection.classList.remove('hide');
+      nextQuestion();
+    }
+  
+    function nextQuestion() {
+      if (currentQuestionIndex >= shuffledQuestions.length) {
+        // Handle the end of the quiz
+        console.log("Quiz finished!");
+        return;
+      }
+      showQuestion(shuffledQuestions[currentQuestionIndex]);
+    }
+  
+    function showQuestion(question) {
+      questionElement.innerText = question.question;
 
+      
+    }
+  
+    // Quiz questions defined here
+    let questions = [
+      {
+        question: "Which country has the longest coastline in the world?",
+        answer: "Canada",
+        options: ["China", "Mexico", "Kenya", "Canada"],
+      },
 
-startButton.addEventListener('click', startQuiz)
+      {
+        question: "In which UK city would you find the river Clyde?",
+        answer: "Glasgow",
+        options: ["Bristol", "London", "Glasgow", "Plymouth"],
+      },
+     
+      {
+        question: "What is the currency of Sweden?",
+        answer: "Krono",
+        options: ["Pound", "Dirham", "Dollar", "Krono",],
+      },
 
-function startQuiz() {
-    console.log("started")
-    startButton.classList.add('hide')
-    
-    questionSection.classList.remove('hide')
+      {
+        question: "Constantinople and Byzantium are former names of which major city?",
+        answer: "Istanbul",
+        options: ["Istanbul", "USA", "Stockholm","Poznam",],
+      },
 
-}
+      {
+        question: "Which continent is in all four hemispheres?",
+        answer:"Africa",
+        options: ["America", "Europe", "Africa","Asia",],
+      },
 
-let questions = [
-    {
-        question1  : `Which country has the longest coastline in the world?`,
-        optionA  : "China",
-        optionB : "Mexico",
-        optionC : "Kenya",
-        optionD : "Canada",
-        answer : "Canada",
- },
-   
-
-    {
-        question2  : `In which UK city would you find the river Clyde?`,
-        optionA  : "Bristol",
-        optionB : "London",
-        optionC : "Glasgow",
-        optionD : "Plymouth",
-        answer : "Glasgow",
- },
- 
- {
-    question3  : `What is the currency of Sweden?`,
-        optionA  : "Pound",
-        optionB : "Dirham",
-        optionC : "Dollar",
-        optionD : "Krono",
-        answer : "Krono",
- },
-
- {
-    question4  : `Constantinople and Byzantium are former names of which major city?`,
-        optionA  : "Istanbul",
-        optionB : "USA",
-        optionC : "Stockholm",
-        optionD : "Poznam",
-        answer : "Istanbul",
- },
-
- {
-    question5  : `Which continent is in all four hemispheres?`,
-    optionA  : "America",
-    optionB : "Europe",
-    optionC : "Africa",
-    optionD : "Asia",
-    answer : "Africa",
- },
-
- {
-    question6  : `What percentage of the River Nile is located in Egypt?`,
-    optionA  : "22 percent",
-    optionB :  "18 percent",
-    optionC :  "28 percent",
-    optionD : "12 percent",
-    answer :  "2 percent",
- }
-    
-]
-
-
+      {
+        question: "What percentage of the River Nile is located in Egypt?",
+        answer:"22 percent",
+        options: ["22 percent", "18 percent",  "28 percent","12 percent",],
+      },
+     
+    ];
+  });
+  
