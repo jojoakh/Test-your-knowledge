@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', function() {
-    const startButton = document.getElementById('start-btn'); // Line 1: Select start button
+    const startButton = document.getElementById('start-btn'); 
     const questionSection = document.getElementById('question-section');
     const answersButtonsElement = document.getElementById('answers-buttons');
     const questionElement = document.getElementById('question');
@@ -28,9 +28,10 @@ window.addEventListener('DOMContentLoaded', function() {
   
     function showQuestion(question) {
       questionElement.innerText = question.question;
-
+     
       
     }
+    
   
     // Quiz questions defined here
     let questions = [
