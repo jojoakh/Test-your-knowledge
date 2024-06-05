@@ -27,9 +27,11 @@ window.addEventListener('DOMContentLoaded', function() {
     
     function showQuestion(question) {
   questionElement.innerText = question.question;
-  question.answers.forEach(option => {
+  console.log(question)
+  answersButtonsElement.innerHTML = '' 
+  question.options.forEach(option => {
     const button = document.createElement('button');
-    button.innerText = option.text;
+    button.innerText = option;
     button.classList.add('btn');
     if (option.correct) { // Use option.correct here
       button.dataset.correct = true;
