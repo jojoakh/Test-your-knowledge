@@ -1,15 +1,15 @@
 window.addEventListener('DOMContentLoaded', function() {
     const startButton = document.getElementById('start-btn'); 
     const questionSection = document.getElementById('question-section');
-    const answersButtonsElement = document.getElementById('answers-buttons');
     const questionElement = document.getElementById('question');
+    const answersButtonsElement = document.getElementById('answers-buttons');
+    
   
-    let shuffledQuestions, currentQuestionIndex;
+    let shuffledQuestions,  currentQuestionIndex = 0;
   
     startButton.addEventListener('click', startQuiz);
   
     function startQuiz() {
-      console.log("started");
       startButton.classList.add('hide');
       shuffledQuestions = questions.sort(() => Math.random() - .5);
       currentQuestionIndex = 0;
@@ -19,19 +19,46 @@ window.addEventListener('DOMContentLoaded', function() {
   
     function nextQuestion() {
       if (currentQuestionIndex >= shuffledQuestions.length) {
-        // Handle the end of the quiz
-        console.log("Quiz finished!");
-        return;
+     resetState()
       }
       showQuestion(shuffledQuestions[currentQuestionIndex]);
     }
-  
-    function showQuestion(question) {
-      questionElement.innerText = question.question;
-     
-      
-    }
     
+    
+    function showQuestion(question) {
+  questionElement.innerText = question.question;
+  question.answers.forEach(option => {
+    const button = document.createElement('button');
+    button.innerText = option.text;
+    button.classList.add('btn');
+    if (option.correct) { // Use option.correct here
+      button.dataset.correct = true;
+    }
+    button.addEventListener('click', selectAnswer);
+    answersButtonsElement.appendChild(button);
+  });
+}
+   
+   
+    
+    function selectAnswer(element) {
+      const selectedButton = element.target
+  const correct = selectedButton.dataset.correct
+  setStatusClass(document.body, correct)
+  
+  Array.from(answersButtonsElement.children).forEach(button => {
+    button.classList.add('hide'); // Hide all buttons after selection
+  });
+  
+  if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    nextButton.classList.remove('hide'); // Show next button if more questions
+  } else {
+    // ... rest of your code to handle quiz end and restart button
+   startButton.innerText = 'Restart'
+    startButton.classList.remove('hide')
+  }
+    }
+
   
     // Quiz questions defined here
     let questions = [
