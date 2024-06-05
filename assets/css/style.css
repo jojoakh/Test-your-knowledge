@@ -57,8 +57,8 @@ p {
 button {
     line-height: 3em;
     background-color: brown;
-    gap: 30px;
     color: white;
+   
     
   
 }
@@ -67,13 +67,12 @@ button {
     display: none;
    
   }
-.option-btn {
-    width: 800px;
-    max-width: 80%;
+div > #question-section {
     color: white;
     border-radius: 5px;
     padding: 10px;
     gap: 30px;
+    flex-direction: column;
     
 
   
