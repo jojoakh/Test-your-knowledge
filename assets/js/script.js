@@ -3,15 +3,18 @@ window.addEventListener('DOMContentLoaded', function() {
   const questionSection = document.getElementById('question-section');
   const questionElement = document.getElementById('question');
   const answersButtonsElement = document.getElementById('answers-buttons');
-  const nextButton = document.createElement('button'); // Create the nextButton element
-  nextButton.innerText = ('Next'); // Set the text for the nextButton
-  nextButton.classList.add('hide'); // Initially hide the nextButton
+  const nextButton = document.createElement('button');
+  nextButton.innerText = 'Next';
+  nextButton.classList.add('hide');
+  const timerElement = document.createElement('div'); // Create a new element to display the timer
+  timerElement.classList.add('timer'); // Add a class for styling
 
-  let shuffledQuestions, currentQuestionIndex = 0;
+  let shuffledQuestions, timerId, currentQuestionIndex = 0, time = 60; // Set the initial time to 60 seconds
 
   startButton.addEventListener('click', startQuiz);
 
   function startQuiz() {
+    timerId = setInterval(clockTick, 1000); // Start the timer
     startButton.classList.add('hide');
     shuffledQuestions = questions.sort(() => Math.random() - 0.5);
     currentQuestionIndex = 0;
@@ -21,7 +24,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
   function nextQuestion() {
     if (currentQuestionIndex >= shuffledQuestions.length) {
-      resetState(); // Call resetState when the quiz ends
+      endQuiz(); // Call the endQuiz function when there are no more questions
       return;
     }
     showQuestion(shuffledQuestions[currentQuestionIndex]);
@@ -29,28 +32,20 @@ window.addEventListener('DOMContentLoaded', function() {
 
   function showQuestion(question) {
     questionElement.innerText = question.question;
-    answersButtonsElement.innerHTML = ''; // Clear previous buttons
+    answersButtonsElement.innerHTML = '';
     question.options.forEach(option => {
       const button = document.createElement('button');
       button.innerText = option;
       button.classList.add('btn');
-      if (option === question.answer) { // Check if the option matches the answer
+      if (option === question.answer) {
         button.dataset.correct = true;
       }
       button.addEventListener('click', selectAnswer);
       answersButtonsElement.appendChild(button);
     });
-    answersButtonsElement.appendChild(nextButton); // Add the nextButton to the answersButtonsElement
-  }
-
-  function resetState() {
-    clearStatusClass(document.body);
-    nextButton.classList.add('hide');
-    while (answersButtonsElement.firstChild) {
-      answersButtonsElement.removeChild(answersButtonsElement.firstChild);
-    }
-    startButton.innerText = 'Restart';
-    startButton.classList.remove('hide');
+    answersButtonsElement.appendChild(nextButton);
+    answersButtonsElement.appendChild(timerElement); // Append the timer element to the answersButtonsElement
+    timerElement.textContent = `Time left: ${time} seconds`; // Display the initial time
   }
 
   function selectAnswer(element) {
@@ -59,19 +54,20 @@ window.addEventListener('DOMContentLoaded', function() {
     setStatusClass(document.body, correct);
 
     Array.from(answersButtonsElement.children).forEach(button => {
-      button.classList.add('hide'); // Hide all buttons after selection
+      button.classList.add('hide');
     });
 
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
-      nextButton.classList.remove('hide'); // Show next button if more questions
+      nextButton.classList.remove('hide');
     } else {
-      resetState(); // Call resetState when the quiz ends
+      endQuiz(); // Call the endQuiz function when there are no more questions
     }
   }
 
   nextButton.addEventListener('click', () => {
     currentQuestionIndex++;
     nextQuestion();
+    time = 60; // Reset the timer when moving to the next question
   });
 
   function setStatusClass(element, correct) {
@@ -88,6 +84,32 @@ window.addEventListener('DOMContentLoaded', function() {
     element.classList.remove('wrong');
   }
 
+  function clockTick() {
+    time--;
+    timerElement.textContent = `Time left: ${time} seconds`; // Update the timer display
+    if (time <= 0) {
+      endQuiz();
+    }
+  }
+
+  function endQuiz() {
+    clearInterval(timerId); // Stop the timer
+    resetState(); // Call the resetState function to reset the quiz state
+    // Add any additional logic you need to handle the end of the quiz
+  }
+
+  function resetState() {
+    clearStatusClass(document.body);
+    nextButton.classList.add('hide');
+    while (answersButtonsElement.firstChild) {
+      answersButtonsElement.removeChild(answersButtonsElement.firstChild);
+    }
+    startButton.innerText = 'Restart';
+    startButton.classList.remove('hide');
+  }
+
+ 
+});
   // Quiz questions defined here
   let questions = [
     {
@@ -121,4 +143,3 @@ window.addEventListener('DOMContentLoaded', function() {
       options: ["22 percent", "18 percent", "28 percent", "12 percent"]
     }
   ];
-});
