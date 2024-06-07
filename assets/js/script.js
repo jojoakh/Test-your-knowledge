@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', function() {
   const questionElement = document.getElementById('question');
   const answersButtonsElement = document.getElementById('answers-buttons');
   const nextButton = document.createElement('button');
-  nextButton.innerText = 'Next';
+  nextButton.innerText = '';
   nextButton.classList.add('hide');
   const timerElement = document.createElement('div'); // Create a new element to display the timer
   timerElement.classList.add('timer'); // Add a class for styling
@@ -60,7 +60,7 @@ window.addEventListener('DOMContentLoaded', function() {
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
       nextButton.classList.remove('hide');
     } else {
-      endQuiz(); // Call the endQuiz function when there are no more questions
+      endQuiz(); // Calls the endQuiz function when there are no more questions
     }
   }
 
@@ -95,7 +95,7 @@ window.addEventListener('DOMContentLoaded', function() {
   function endQuiz() {
     clearInterval(timerId); // Stop the timer
     resetState(); // Call the resetState function to reset the quiz state
-    // Add any additional logic you need to handle the end of the quiz
+   
   }
 
   function resetState() {

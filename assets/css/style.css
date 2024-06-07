@@ -9,10 +9,10 @@
 }
 
 body {
-   background-color: rgb(218, 226, 226);
+   background-color: rgb(60, 124, 121);
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
-    color: rgb(75, 14, 14);
+    color: whitesmoke;
     font-size: medium;
     letter-spacing: 2.0px;
     height: 100%;
@@ -56,8 +56,8 @@ p {
 }
 button {
     line-height: 3em;
-    background-color: brown;
-    color: white;
+    background-color:rgba(147, 78, 0, 0.745);
+    color: whitesmoke;
    
     
   
