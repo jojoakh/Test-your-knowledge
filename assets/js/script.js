@@ -1,138 +1,144 @@
 window.addEventListener('DOMContentLoaded', function() {
+  const usernameSection = document.getElementById('username-section');
+  const usernameInput = document.getElementById('username-input');
+  const submitUsernameBtn = document.getElementById('submit-username-btn');
   const startButton = document.getElementById('start-btn');
+  const startSection = document.getElementById('start-section');
   const questionSection = document.getElementById('question-section');
   const questionElement = document.getElementById('question');
   const answersButtonsElement = document.getElementById('answers-buttons');
-  const finalScoreContainer = document.getElementById('final-score-container'); // Add a new container for the final score
-  
-  const timerElement = document.createElement('div'); 
-  timerElement.classList.add('timer'); 
-  
-  let shuffledQuestions, timerId, currentQuestionIndex = 0, scores = 0, time = 10; // Set the initial time to 10 seconds
+  const finalScoreContainer = document.getElementById('final-score-container');
+  const timerElement = document.createElement('div');
+  timerElement.classList.add('timer');
 
+  let shuffledQuestions, timerId, currentQuestionIndex = 0, scores = 0, time = 10;
+  let username = '';
+
+  submitUsernameBtn.addEventListener('click', submitUsername);
   startButton.addEventListener('click', startQuiz);
 
+  function submitUsername() {
+    username = usernameInput.value.trim();
+    if (username !== '') {
+      usernameSection.classList.add('hide');
+      startSection.classList.remove('hide');
+    } else {
+      alert('Please enter a username.');
+    }
+  }
+
   function startQuiz() {
-    timerId = setInterval(timeTick, 1000); // Start the timer
-    startButton.classList.add('hide'); // Hide the start button
-    shuffledQuestions = questions.sort(() => Math.random() - 0.5); // Shuffle the questions
-    currentQuestionIndex = 0; // Reset the question index
-    questionSection.classList.remove('hide'); // Show the question section
-    finalScoreContainer.innerHTML = ''; // Clear previous final score
-    scores = 0; // Reset the scores
-    time = 10; // Reset the timer
-    nextQuestion(); // Show the next question
+    timerId = setInterval(timeTick, 1000);
+    startButton.classList.add('hide');
+    shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+    currentQuestionIndex = 0;
+    questionSection.classList.remove('hide');
+    finalScoreContainer.innerHTML = '';
+    scores = 0;
+    time = 10;
+    nextQuestion();
   }
 
   function nextQuestion() {
     if (currentQuestionIndex >= shuffledQuestions.length) {
-      endQuiz(); // Call the endQuiz function when there are no more questions
+      endQuiz();
       return;
     }
-    showQuestion(shuffledQuestions[currentQuestionIndex]); // Show the next question
+    showQuestion(shuffledQuestions[currentQuestionIndex]);
   }
 
   function showQuestion(question) {
-    questionElement.innerText = question.question; // Set the question text
-    answersButtonsElement.innerHTML = ''; // Clear previous answers
+    questionElement.innerText = question.question;
+    answersButtonsElement.innerHTML = '';
     question.options.forEach(option => {
-      const button = document.createElement('button'); // Create a button for each option
-      button.innerText = option; // Set the button text
-      button.classList.add('btn'); // Add the 'btn' class to the button
+      const button = document.createElement('button');
+      button.innerText = option;
+      button.classList.add('btn');
       if (option === question.answer) {
-        button.dataset.correct = true; // Mark the correct answer
+        button.dataset.correct = true;
       }
-      button.addEventListener('click', selectAnswer); // Add click event listener
-      answersButtonsElement.appendChild(button); // Add button to the answers container
+      button.addEventListener('click', selectAnswer);
+      answersButtonsElement.appendChild(button);
     });
-    
-    answersButtonsElement.appendChild(timerElement); // Append the timer element to the answers container
-    timerElement.textContent = `Time left: ${time} seconds`; // Display the initial time
+    answersButtonsElement.appendChild(timerElement);
+    timerElement.textContent = `Time left: ${time} seconds`;
   }
 
   function resetQuiz() {
-    clearStatusClass(document.body); // Clear status classes
+    clearStatusClass(document.body);
     while (answersButtonsElement.firstChild) {
-      answersButtonsElement.removeChild(answersButtonsElement.firstChild); // Remove previous answers
+      answersButtonsElement.removeChild(answersButtonsElement.firstChild);
     }
-    startButton.innerText = 'Restart'; // Set start button text to 'Restart'
-    startButton.classList.remove('hide'); // Show the start button
+    startButton.innerText = 'Restart';
+    startButton.classList.remove('hide');
   }
 
   function selectAnswer(event) {
-    const selectedButton = event.target; // Get the clicked button
-    const correct = selectedButton.dataset.correct === 'true'; // Check if the answer is correct
-    setStatusClass(document.body, correct); // Set the status class
+    const selectedButton = event.target;
+    const correct = selectedButton.dataset.correct === 'true';
+    setStatusClass(document.body, correct);
 
     if (correct) {
-      selectedButton.style.backgroundColor = 'green'; // Correct answer is green
-      scores++; // Increment score if the answer is correct
+      selectedButton.style.backgroundColor = 'green';
+      scores++;
     } else {
-      selectedButton.style.backgroundColor = 'red'; // Wrong answer is red
+      selectedButton.style.backgroundColor = 'red';
     }
 
-    // Disable all buttons
     Array.from(answersButtonsElement.children).forEach(button => {
       button.disabled = true;
       if (button.dataset.correct === 'true') {
-        button.style.backgroundColor = 'green'; // Correct answers are green
+        button.style.backgroundColor = 'green';
       }
     });
 
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
-      currentQuestionIndex++; // Move to the next question
-      setTimeout(nextQuestion, 1000); // Wait for 1 second before showing the next question
-      time = 10; // Reset the timer for the next question
+      currentQuestionIndex++;
+      setTimeout(nextQuestion, 1000);
+      time = 10;
     } else {
-      setTimeout(endQuiz, 1000); // End the quiz after a short delay
+      setTimeout(endQuiz, 1000);
     }
   }
 
   function setStatusClass(element, correct) {
-    clearStatusClass(element); // Clear previous status classes
+    clearStatusClass(element);
     if (correct) {
-      element.classList.add('correct'); // Add 'correct' class if the answer is correct
+      element.classList.add('correct');
     } else {
-      element.classList.add('wrong'); // Add 'wrong' class if the answer is wrong
+      element.classList.add('wrong');
     }
   }
 
   function clearStatusClass(element) {
-    element.classList.remove('correct'); // Remove 'correct' class
-    element.classList.remove('wrong'); // Remove 'wrong' class
+    element.classList.remove('correct');
+    element.classList.remove('wrong');
   }
 
   function endQuiz() {
-    clearInterval(timerId); // Stop the timer
-    resetQuiz(); // Reset the quiz state
+    clearInterval(timerId);
+    resetQuiz();
 
-    // Create a button to display the final score
     const scoreButton = document.createElement('button');
     scoreButton.innerText = `Your final score is: ${scores}/${shuffledQuestions.length}`;
-    scoreButton.classList.add('btn', 'final-score-btn'); // Add classes to style the button
-
-    // Append the score button to the final score container
+    scoreButton.classList.add('btn', 'final-score-btn');
     finalScoreContainer.appendChild(scoreButton);
 
-    // Create the restart button
     const restartButton = document.createElement('button');
     restartButton.innerText = 'Restart Quiz';
-    restartButton.classList.add('btn', 'restart-btn'); 
-    restartButton.addEventListener('click', startQuiz); // Add click event listener to restart the quiz
-
-    // Append the restart button to the final score container
+    restartButton.classList.add('btn', 'restart-btn');
+    restartButton.addEventListener('click', startQuiz);
     finalScoreContainer.appendChild(restartButton);
   }
 
   function timeTick() {
-    time--; // Decrease the time by 1 second
-    timerElement.textContent = `Time left: ${time} seconds`; // Update the timer display
+    time--;
+    timerElement.textContent = `Time left: ${time} seconds`;
     if (time <= 0) {
-      endQuiz(); // End the quiz if time runs out
+      endQuiz();
     }
   }
 
-  // Quiz questions defined here
   let questions = [
     {
       question: "Which country has the longest coastline in the world?",
