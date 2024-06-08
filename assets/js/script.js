@@ -3,18 +3,18 @@ window.addEventListener('DOMContentLoaded', function() {
   const questionSection = document.getElementById('question-section');
   const questionElement = document.getElementById('question');
   const answersButtonsElement = document.getElementById('answers-buttons');
-  const nextButton = document.createElement('button');
-  nextButton.innerText = '';
-  nextButton.classList.add('hide');
-  const timerElement = document.createElement('div'); // Create a new element to display the timer
-  timerElement.classList.add('timer'); // Add a class for styling
+ 
+ 
+  const timerElement = document.createElement('div'); 
+  timerElement.classList.add('timer'); 
+  
 
   let shuffledQuestions, timerId, currentQuestionIndex = 0, time = 60; // Set the initial time to 60 seconds
 
   startButton.addEventListener('click', startQuiz);
 
   function startQuiz() {
-    timerId = setInterval(clockTick, 1000); // Start the timer
+    timerId = setInterval(timeTick, 1000); // Start the timer
     startButton.classList.add('hide');
     shuffledQuestions = questions.sort(() => Math.random() - 0.5);
     currentQuestionIndex = 0;
@@ -43,7 +43,7 @@ window.addEventListener('DOMContentLoaded', function() {
       button.addEventListener('click', selectAnswer);
       answersButtonsElement.appendChild(button);
     });
-    answersButtonsElement.appendChild(nextButton);
+    
     answersButtonsElement.appendChild(timerElement); // Append the timer element to the answersButtonsElement
     timerElement.textContent = `Time left: ${time} seconds`; // Display the initial time
   }
@@ -58,13 +58,14 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
-      nextButton.classList.remove('hide');
+     
     } else {
-      endQuiz(); // Calls the endQuiz function when there are no more questions
+      // Calls the endQuiz function when there are no more questions
+      endQuiz(); 
     }
   }
 
-  nextButton.addEventListener('click', () => {
+  answersButtonsElement.addEventListener('click', () => {
     currentQuestionIndex++;
     nextQuestion();
     time = 60; // Reset the timer when moving to the next question
@@ -84,7 +85,7 @@ window.addEventListener('DOMContentLoaded', function() {
     element.classList.remove('wrong');
   }
 
-  function clockTick() {
+  function timeTick() {
     time--;
     timerElement.textContent = `Time left: ${time} seconds`; // Update the timer display
     if (time <= 0) {
@@ -94,13 +95,13 @@ window.addEventListener('DOMContentLoaded', function() {
 
   function endQuiz() {
     clearInterval(timerId); // Stop the timer
-    resetState(); // Call the resetState function to reset the quiz state
+    reset(); // Call the reset function to reset the quiz state
    
   }
 
-  function resetState() {
+  function reset() {
     clearStatusClass(document.body);
-    nextButton.classList.add('hide');
+  
     while (answersButtonsElement.firstChild) {
       answersButtonsElement.removeChild(answersButtonsElement.firstChild);
     }
