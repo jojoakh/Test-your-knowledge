@@ -32,9 +32,11 @@ img {
    width: 250px;
    height: 200px;
    margin: 0 auto;
-
-  
+   overflow-clip-margin: content-box;
+   overflow: clip;
 }
+  
+
 
 h1 {
     display: block;
@@ -102,6 +104,10 @@ footer {
    body {
     align-content: center;
     
+   }
+
+   img {
+    width: 400px;
    }
    
     #answers-buttons {
