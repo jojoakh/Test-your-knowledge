@@ -3,13 +3,14 @@ window.addEventListener('DOMContentLoaded', function() {
   const questionSection = document.getElementById('question-section');
   const questionElement = document.getElementById('question');
   const answersButtonsElement = document.getElementById('answers-buttons');
+  const finalScore =document.getElementById('scores');
  
  
   const timerElement = document.createElement('div'); 
   timerElement.classList.add('timer'); 
   
 
-  let shuffledQuestions, timerId, currentQuestionIndex = 0, time = 60; // Set the initial time to 60 seconds
+  let shuffledQuestions, timerId, currentQuestionIndex = 0, scores = 0, time = 60; // Set the initial time to 60 seconds
 
   startButton.addEventListener('click', startQuiz);
 
@@ -48,6 +49,16 @@ window.addEventListener('DOMContentLoaded', function() {
     timerElement.textContent = `Time left: ${time} seconds`; // Display the initial time
   }
 
+  function resetQuiz() {
+    clearStatusClass(document.body);
+    while (answersButtonsElement.firstChild) {
+      answersButtonsElement.removeChild(answersButtonsElement.firstChild);
+    }
+    startButton.innerText = 'Restart';
+    startButton.classList.remove('hide');
+    scores = 0;
+  }
+
   function selectAnswer(element) {
     const selectedButton = element.target;
     const correct = selectedButton.dataset.correct;
@@ -56,6 +67,10 @@ window.addEventListener('DOMContentLoaded', function() {
     Array.from(answersButtonsElement.children).forEach(button => {
       button.classList.add('hide');
     });
+
+    if (correct) {
+      scores++; // Increment score if answer is correct
+    }
 
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
      
@@ -92,23 +107,15 @@ window.addEventListener('DOMContentLoaded', function() {
       endQuiz();
     }
   }
-
   function endQuiz() {
     clearInterval(timerId); // Stop the timer
-    reset(); // Call the reset function to reset the quiz state
-   
+    resetQuiz(); // Call the resetQuiz function to reset the quiz state
+    // Display the final score 
+    alert(`Your final score is: ${scores}/${shuffledQuestions.length}`);
+    
   }
-
-  function reset() {
-    clearStatusClass(document.body);
+ 
   
-    while (answersButtonsElement.firstChild) {
-      answersButtonsElement.removeChild(answersButtonsElement.firstChild);
-    }
-    startButton.innerText = 'Restart';
-    startButton.classList.remove('hide');
-  }
-
  
 });
   // Quiz questions defined here
