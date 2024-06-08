@@ -47,13 +47,15 @@ h1 {
    
 }
 
-
-
-
-
 p {
     line-height: 2em;
 }
+
+#question {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 button {
     line-height: 3em;
     background-color:rgba(147, 78, 0, 0.745);
@@ -77,9 +79,6 @@ button {
   display: flex;
   flex-direction: column;
   font-weight: bold;
-  
-
-    
 
   
 }

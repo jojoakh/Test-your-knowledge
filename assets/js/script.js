@@ -56,7 +56,7 @@ window.addEventListener('DOMContentLoaded', function() {
     }
     startButton.innerText = 'Restart';
     startButton.classList.remove('hide');
-    scores = 0;
+
   }
 
   function selectAnswer(element) {
@@ -100,19 +100,21 @@ window.addEventListener('DOMContentLoaded', function() {
     element.classList.remove('wrong');
   }
 
-  function timeTick() {
-    time--;
-    timerElement.textContent = `Time left: ${time} seconds`; // Update the timer display
-    if (time <= 0) {
-      endQuiz();
-    }
-  }
+ 
   function endQuiz() {
     clearInterval(timerId); // Stop the timer
     resetQuiz(); // Call the resetQuiz function to reset the quiz state
     // Display the final score 
     alert(`Your final score is: ${scores}/${shuffledQuestions.length}`);
     
+  }
+
+  function timeTick() {
+    time--;
+    timerElement.textContent = `Time left: ${time} seconds`; // Update the timer display
+    if (time <= 0) {
+      endQuiz();
+    }
   }
  
   
