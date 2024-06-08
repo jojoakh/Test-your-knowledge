@@ -117,7 +117,7 @@ window.addEventListener('DOMContentLoaded', function() {
     // Create the restart button
     const restartButton = document.createElement('button');
     restartButton.innerText = 'Restart Quiz';
-    restartButton.classList.add('btn', 'restart-btn'); // Add classes to style the button
+    restartButton.classList.add('btn', 'restart-btn'); 
     restartButton.addEventListener('click', startQuiz); // Add click event listener to restart the quiz
 
     // Append the restart button to the final score container
