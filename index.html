@@ -8,6 +8,7 @@
     <title>Test Your Knowledge</title>
 </head>
 <body>
+  <!-- Start Section Header -->
     <header>
     
         <div id="start-section">
@@ -17,7 +18,10 @@
             <img src="assets/images/header-image.jpg" alt="World map on the wall">
         </div>
     </header>
-    <div id="start-btn" class="start-btn btn">
+    <!-- Main quiz area -->
+    <div class="quiz-container">
+    
+     <div id="start-btn" class="start-btn btn">
         <div class="quiz-container">
         <div class="start-section" id="start-section">
           <h2>
@@ -27,7 +31,7 @@
             How much do you know your geography,
           </p> 
           <p>Here is an opportunity to test your Knowledge,</p> 
-          <p>Answer the following questions within the given time.</p>
+          
         </div>
          
          <button>
@@ -35,7 +39,7 @@
           </button>
         </div>
         </div>
-
+        <!-- Username section -->
         <div id="username-section" class="hide">
           <input type="text" id="username-input" placeholder="Enter your username">
           <button id="submit-username-btn">Submit</button>
@@ -44,7 +48,8 @@
         <div id="display-username" class="hide"></div>
          <div class="hide" id="question-section">
 
-            <div id="question">
+          <!-- Question Section --> 
+          <div id="question">
               <h2>Question</h2></div>
             <div id="answers-buttons">
               <button class="option-btn">Option </button>
@@ -54,28 +59,28 @@
             </div>
          </div>
         
-         <div id="rules-section" class="hide">
+         <div id="rules-container" class="hide">
           <h2>Game Rules</h2>
-          <p>1. You will be presented with a series of questions.</p>
-          <p>2. You have 10 seconds to answer each question.</p>
-          <p>3. Your final score will be shown at the end of the quiz.</p>
-          <button id="acknowledge-rules-btn" class="btn">I Understand</button>
+          <p> You will be presented with a series of questions.</p>
+          <p> You have 10 seconds to answer each question.</p>
+          <p> Your final score will be shown at the end of the quiz.</p>
+          <p> You need to create a username to view your final score.</p>
+          <button id="close-rules-btn" class="btn">Close Rules</button>
         </div>
       
+         <!-- Buttons to Show Rules and Start Quiz -->
         <div id="start-section">
           <button id="show-rules-btn" class="btn">Show Rules</button>
           <button id="start-btn" class="btn hide">Start Quiz</button>
         </div>
     
-    <footer>
+    <!-- Final Score Container -->
       <div id="final-score-container">
         
       </div>
 
-        
-    </footer>
 
-  
+ 
     <script src="assets/js/script.js"></script>
 </body>
 </html>

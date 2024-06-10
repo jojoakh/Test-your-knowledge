@@ -76,6 +76,21 @@ button {
     display: none;
    
   }
+
+  #rules-container {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgb(45, 83, 81);
+    border: 2px solid black;
+    padding: 20px;
+    z-index: 1000;
+    font-size: large;
+    height: 40%;
+   
+  }
+
 #answers-buttons {
     gap: 20px;
   display: flex;

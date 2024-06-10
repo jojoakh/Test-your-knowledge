@@ -1,10 +1,8 @@
 window.addEventListener('DOMContentLoaded', function() {
+  // Elements from the HTML DOM
   const showRulesBtn = document.getElementById('show-rules-btn');
-  const rulesSection = document.getElementById('rules-section');
-  const acknowledgeRulesBtn = document.getElementById('acknowledge-rules-btn');
-  const usernameSection = document.getElementById('username-section');
-  const usernameInput = document.getElementById('username-input');
-  const submitUsernameBtn = document.getElementById('submit-username-btn');
+  const rulesContainer = document.getElementById('rules-container');
+  const closeRulesBtn = document.getElementById('close-rules-btn');
   const startButton = document.getElementById('start-btn');
   const startSection = document.getElementById('start-section');
   const questionSection = document.getElementById('question-section');
@@ -13,29 +11,40 @@ window.addEventListener('DOMContentLoaded', function() {
   const finalScoreContainer = document.getElementById('final-score-container');
   const timerElement = document.createElement('div');
   timerElement.classList.add('timer');
+  const usernameSection = document.getElementById('username-section');
+  const usernameInput = document.getElementById('username-input');
+  const submitUsernameBtn = document.getElementById('submit-username-btn');
 
+  // The Quiz variables
   let shuffledQuestions, timerId, currentQuestionIndex = 0, scores, time;
   let username = '';
 
+  // Event listeners to the buttons
   showRulesBtn.addEventListener('click', displayRules);
-  acknowledgeRulesBtn.addEventListener('click', showStartSection);
+  closeRulesBtn.addEventListener('click', closeRules);
   startButton.addEventListener('click', startQuiz);
   submitUsernameBtn.addEventListener('click', submitUsername);
 
+  // Function to display the quiz rules container
   function displayRules() {
-    rulesSection.classList.remove('hide');
+    rulesContainer.classList.remove('hide');
   }
 
-  function showStartSection() {
-    rulesSection.classList.add('hide');
-    startSection.classList.remove('hide');
+  // Hides the rules container
+  function closeRules() {
+    rulesContainer.classList.add('hide');
   }
+ 
 
-
+ // Starts the quiz
   function startQuiz() {
+    // start the timer with 1-second intervals
     timerId = setInterval(timeTick, 1000);
+
     startButton.classList.add('hide');
     startSection.classList.add('hide');
+
+    // Shuffle the questions to show randomly
     shuffledQuestions = questions.sort(() => Math.random() - 0.5);
     currentQuestionIndex = 0;
     questionSection.classList.remove('hide');
@@ -45,6 +54,7 @@ window.addEventListener('DOMContentLoaded', function() {
     nextQuestion();
   }
 
+  // Display next question
   function nextQuestion() {
     if (currentQuestionIndex >= shuffledQuestions.length) {
       endQuiz();
@@ -53,6 +63,7 @@ window.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  // Display question and the options
   function showQuestion(question) {
     questionElement.innerText = question.question;
     answersButtonsElement.innerHTML = '';
@@ -60,6 +71,8 @@ window.addEventListener('DOMContentLoaded', function() {
       const button = document.createElement('button');
       button.innerText = option;
       button.classList.add('btn');
+
+      // Mark the correct answer with data attribute
       if (option === question.answer) {
         button.dataset.correct = true;
       }
@@ -70,15 +83,16 @@ window.addEventListener('DOMContentLoaded', function() {
     timerElement.textContent = `Time left: ${time} seconds`;
   }
 
+  // Function to reset the quiz for the next question
   function resetQuiz() {
     clearStatusClass(document.body);
     while (answersButtonsElement.firstChild) {
       answersButtonsElement.removeChild(answersButtonsElement.firstChild);
     }
-    startButton.innerText = 'Restart';
-    startButton.classList.remove('hide');
+   
   }
 
+  // Handle answer selection
   function selectAnswer(event) {
     const selectedButton = event.target;
     const correct = selectedButton.dataset.correct === 'true';
@@ -107,6 +121,7 @@ window.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  // Set the status class based on the answer
   function setStatusClass(element, correct) {
     clearStatusClass(element);
     if (correct) {
@@ -121,6 +136,7 @@ window.addEventListener('DOMContentLoaded', function() {
     element.classList.remove('wrong');
   }
 
+  // Handle username submission
   function submitUsername() {
     username = usernameInput.value.trim();
     if (username !== '') {
@@ -130,15 +146,22 @@ window.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  // Function to end the quiz
   function endQuiz() {
     clearInterval(timerId);
     resetQuiz();
-
-    const scoreButton = document.createElement('button');
-    scoreButton.innerText = `Your final score is: ${scores}/${shuffledQuestions.length}`;
-    scoreButton.classList.add('btn', 'final-score-btn');
-    finalScoreContainer.appendChild(scoreButton);
-
+    questionSection.classList.add('hide');
+    usernameSection.classList.remove('hide');
+  }
+// Display the final score and restart the quiz
+  function displayFinalScore() {
+    usernameSection.classList.add('hide');
+    finalScoreContainer.innerHTML = '';
+    finalScoreContainer.classList.remove('hide');
+    const scoreMessage = document.createElement('div');
+    scoreMessage.innerText = `Your final score is: ${scores}/${shuffledQuestions.length}`;
+    scoreMessage.classList.add('final-score-message');
+    finalScoreContainer.appendChild(scoreMessage);
     const restartButton = document.createElement('button');
     restartButton.innerText = 'Restart Quiz';
     restartButton.classList.add('btn', 'restart-btn');
@@ -146,6 +169,9 @@ window.addEventListener('DOMContentLoaded', function() {
     finalScoreContainer.appendChild(restartButton);
   }
 
+
+
+   // Timer countdown
   function timeTick() {
     time--;
     timerElement.textContent = `Time left: ${time} seconds`;
@@ -154,6 +180,7 @@ window.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  
   let questions = [
     {
       question: "Which country has the longest coastline in the world?",
