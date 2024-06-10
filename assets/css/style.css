@@ -60,14 +60,46 @@ p {
     margin-bottom: 20px;
 }
 
-/* General button styling */
+/* Button styling */
+
 button {
     line-height: 3em;
-    background-color:rgba(147, 78, 0, 0.745);
+    background-color: rgba(147, 78, 0, 0.745);
     color: whitesmoke;
     border-radius: 5px;
-    padding: 8px; 
-  
+    padding: 5px 8px; 
+    border: none;
+    cursor: pointer;
+    font-size: large; 
+    margin: 5px; 
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+button:hover {
+    background-color: rgba(147, 78, 0, 0.9);
+}
+
+button:active {
+    transform: scale(0.95); 
+}
+
+button:focus {
+    outline: 3px solid rgba(147, 78, 0, 1); 
+}
+
+/* Styling for the username input field */
+#username-input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid rgba(147, 78, 0, 0.745);
+    margin-bottom: 10px;
+    font-size: medium;
+    outline: none;
+}
+
+#username-input:focus {
+    border-color: rgba(147, 78, 0, 1);
 }
 
 /* Class to hide elements */
@@ -82,7 +114,7 @@ button {
     top: 10%;
     left: 50%;
     transform: translateX(-50%);
-    background: rgb(45, 83, 81);
+    background: rgb(19, 40, 39);
     border: 2px solid black;
     padding: 20px;
     z-index: 1000;
@@ -154,6 +186,10 @@ button {
     
  button {
     align-content: center;
+ }
+
+ #username-input {
+    width: 20%;
  }
 
  
