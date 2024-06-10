@@ -116,10 +116,10 @@ button:focus {
     transform: translateX(-50%);
     background: rgb(19, 40, 39);
     border: 2px solid black;
-    padding: 20px;
+    padding: 5px;
     z-index: 1000;
-    font-size: large;
-    height: 40%;
+    height: 70%;
+    width: 100%;
    
   }
 
@@ -133,8 +133,94 @@ button:focus {
   
 }
 
+/* Feedback message styling */
+#feedback-message {
+    margin-top: 20px;
+    font-size: large;
+    font-weight: bold;
+  }
+
 /* Responsive design for larger screens (tablets and larger) */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 698px) {
+    body {
+        align-content: center;
+        
+       }
+    
+       img {
+        width: 500px;
+            height: 400px;
+       }
+
+       #rules-container {
+        width: 60%;
+        height: 50%;
+    
+       
+      }
+       
+        #answers-buttons {
+          
+            max-width: 30%;
+            display: flex;
+            margin: auto;
+            
+           
+     }
+        
+     button {
+        align-content: center;
+     }
+    
+     #username-input {
+        width: 30%;
+     }
+     
+}
+
+
+/* Responsive design for larger screens (laptops and desktops) */
+@media screen and (min-width: 995px) {
+   
+   body {
+    align-content: center;
+    
+   }
+
+   img {
+    width: 500px;
+        height: 400px;
+   }
+
+   #rules-container {
+    width: 50%;
+    font-size: large;
+    height: 40%;
+
+   
+  }
+   
+    #answers-buttons {
+      
+        max-width: 30%;
+        display: flex;
+        margin: auto;
+        
+       
+ }
+    
+ button {
+    align-content: center;
+ }
+
+ #username-input {
+    width: 20%;
+ }
+
+}
+
+@media screen and (min-width: 1024px) {
+    
     body {
         align-content: center;
         
@@ -158,40 +244,10 @@ button:focus {
         align-content: center;
      }
     
+     #username-input {
+        width: 20%;
+     }
+    
      
-}
-
-
-/* Responsive design for larger screens (laptops and desktops) */
-@media screen and (min-width: 995px) {
-   
-   body {
-    align-content: center;
     
-   }
-
-   img {
-    width: 500px;
-        height: 400px;
-   }
-   
-    #answers-buttons {
-      
-        max-width: 30%;
-        display: flex;
-        margin: auto;
-        
-       
- }
-    
- button {
-    align-content: center;
- }
-
- #username-input {
-    width: 20%;
- }
-
- 
-
 }

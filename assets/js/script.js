@@ -169,8 +169,7 @@ window.addEventListener('DOMContentLoaded', function() {
     finalScoreContainer.appendChild(restartButton);
   }
 
-
-
+  
    // Timer countdown
   function timeTick() {
     time--;
