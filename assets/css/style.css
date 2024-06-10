@@ -101,9 +101,36 @@ button {
   
 }
 
+/* Responsive design for larger screens (tablets and larger) */
+@media screen and (min-width: 768px) {
+    body {
+        align-content: center;
+        
+       }
+    
+       img {
+        width: 500px;
+            height: 400px;
+       }
+       
+        #answers-buttons {
+          
+            max-width: 30%;
+            display: flex;
+            margin: auto;
+            
+           
+     }
+        
+     button {
+        align-content: center;
+     }
+    
+     
+}
 
 
-
+/* Responsive design for larger screens (laptops and desktops) */
 @media screen and (min-width: 995px) {
    
    body {
@@ -113,7 +140,7 @@ button {
 
    img {
     width: 500px;
-        height: 300px;
+        height: 400px;
    }
    
     #answers-buttons {
