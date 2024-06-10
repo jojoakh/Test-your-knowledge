@@ -1,4 +1,7 @@
 window.addEventListener('DOMContentLoaded', function() {
+  const showRulesBtn = document.getElementById('show-rules-btn');
+  const rulesSection = document.getElementById('rules-section');
+  const acknowledgeRulesBtn = document.getElementById('acknowledge-rules-btn');
   const usernameSection = document.getElementById('username-section');
   const usernameInput = document.getElementById('username-input');
   const submitUsernameBtn = document.getElementById('submit-username-btn');
@@ -11,25 +14,28 @@ window.addEventListener('DOMContentLoaded', function() {
   const timerElement = document.createElement('div');
   timerElement.classList.add('timer');
 
-  let shuffledQuestions, timerId, currentQuestionIndex = 0, scores = 0, time = 10;
+  let shuffledQuestions, timerId, currentQuestionIndex = 0, scores, time;
   let username = '';
 
-  submitUsernameBtn.addEventListener('click', submitUsername);
+  showRulesBtn.addEventListener('click', displayRules);
+  acknowledgeRulesBtn.addEventListener('click', showStartSection);
   startButton.addEventListener('click', startQuiz);
+  submitUsernameBtn.addEventListener('click', submitUsername);
 
-  function submitUsername() {
-    username = usernameInput.value.trim();
-    if (username !== '') {
-      usernameSection.classList.add('hide');
-      startSection.classList.remove('hide');
-    } else {
-      alert('Please enter a username.');
-    }
+  function displayRules() {
+    rulesSection.classList.remove('hide');
   }
+
+  function showStartSection() {
+    rulesSection.classList.add('hide');
+    startSection.classList.remove('hide');
+  }
+
 
   function startQuiz() {
     timerId = setInterval(timeTick, 1000);
     startButton.classList.add('hide');
+    startSection.classList.add('hide');
     shuffledQuestions = questions.sort(() => Math.random() - 0.5);
     currentQuestionIndex = 0;
     questionSection.classList.remove('hide');
@@ -42,9 +48,9 @@ window.addEventListener('DOMContentLoaded', function() {
   function nextQuestion() {
     if (currentQuestionIndex >= shuffledQuestions.length) {
       endQuiz();
-      return;
+    } else {
+      showQuestion(shuffledQuestions[currentQuestionIndex]);
     }
-    showQuestion(shuffledQuestions[currentQuestionIndex]);
   }
 
   function showQuestion(question) {
@@ -113,6 +119,15 @@ window.addEventListener('DOMContentLoaded', function() {
   function clearStatusClass(element) {
     element.classList.remove('correct');
     element.classList.remove('wrong');
+  }
+
+  function submitUsername() {
+    username = usernameInput.value.trim();
+    if (username !== '') {
+      displayFinalScore();
+    } else {
+      alert('Please enter a username to view your final score.');
+    }
   }
 
   function endQuiz() {
