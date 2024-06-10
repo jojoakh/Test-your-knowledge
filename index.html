@@ -8,16 +8,8 @@
     <title>Test Your Knowledge</title>
 </head>
 <body>
-
-
-
     <header>
-      
-      <div id="username-section">
-        <input type="text" id="username-input" placeholder="Enter your username">
-        <button id="submit-username-btn">Submit</button>
-      </div>
-
+    
         <div id="start-section">
             <h1>
                 Test Your Knowledge
@@ -44,9 +36,14 @@
         </div>
         </div>
 
+        <div id="username-section" class="hide">
+          <input type="text" id="username-input" placeholder="Enter your username">
+          <button id="submit-username-btn">Submit</button>
+        </div>
 
-       
+        <div id="display-username" class="hide"></div>
          <div class="hide" id="question-section">
+
             <div id="question">
               <h2>Question</h2></div>
             <div id="answers-buttons">
@@ -57,6 +54,18 @@
             </div>
          </div>
         
+         <div id="rules-section" class="hide">
+          <h2>Game Rules</h2>
+          <p>1. You will be presented with a series of questions.</p>
+          <p>2. You have 10 seconds to answer each question.</p>
+          <p>3. Your final score will be shown at the end of the quiz.</p>
+          <button id="acknowledge-rules-btn" class="btn">I Understand</button>
+        </div>
+      
+        <div id="start-section">
+          <button id="show-rules-btn" class="btn">Show Rules</button>
+          <button id="start-btn" class="btn hide">Start Quiz</button>
+        </div>
     
     <footer>
       <div id="final-score-container">
