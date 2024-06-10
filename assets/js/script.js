@@ -180,7 +180,7 @@ window.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  
+  // Quiz questions 
   let questions = [
     {
       question: "Which country has the longest coastline in the world?",

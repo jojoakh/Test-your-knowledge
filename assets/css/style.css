@@ -8,6 +8,7 @@
     box-sizing: border-box;
 }
 
+/* General body styling */
 body {
    background-color: rgb(60, 124, 121);
     font-family: 'Times New Roman', Times, serif;
@@ -27,7 +28,7 @@ header {
     padding: 15px;
     
 }
-
+/* Image styling */
 img {
    width: 250px;
    height: 200px;
@@ -37,7 +38,7 @@ img {
 }
   
 
-
+/* h1 styling */
 h1 {
     display: block;
     font-size: 2em;
@@ -53,30 +54,29 @@ p {
     line-height: 2em;
 }
 
+/* Question section styling */
 #question {
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
+/* General button styling */
 button {
     line-height: 3em;
     background-color:rgba(147, 78, 0, 0.745);
     color: whitesmoke;
     border-radius: 5px;
-    padding: 8px;
-  
-   
-    
+    padding: 8px; 
   
 }
 
-
-
+/* Class to hide elements */
 .hide {
     display: none;
    
   }
 
+  /* Rules container styling */
   #rules-container {
     position: fixed;
     top: 10%;
@@ -91,6 +91,7 @@ button {
    
   }
 
+  /* Answers buttons styling */
 #answers-buttons {
     gap: 20px;
   display: flex;
@@ -100,17 +101,6 @@ button {
   
 }
 
-footer {
-    display: flex;
-    text-align: center;
-   justify-content: space-between;
-    padding: 20px;
-    width: 100%;
-    font-size: 100%;
-    font-weight: bolder;
-    margin-bottom: auto;
-    
-}
 
 
 
@@ -122,7 +112,8 @@ footer {
    }
 
    img {
-    width: 400px;
+    width: 500px;
+        height: 300px;
    }
    
     #answers-buttons {
@@ -137,5 +128,7 @@ footer {
  button {
     align-content: center;
  }
+
+ 
 
 }
