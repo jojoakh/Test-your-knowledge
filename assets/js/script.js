@@ -63,6 +63,7 @@ window.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  // // Learnt this concept below from Web Dev Simplified on YT
   // Display question and the options
   function showQuestion(question) {
     questionElement.innerText = question.question;
