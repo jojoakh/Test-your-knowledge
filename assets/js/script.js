@@ -15,6 +15,7 @@ window.addEventListener('DOMContentLoaded', function() {
   const usernameSection = document.getElementById('username-section');
   const usernameInput = document.getElementById('username-input');
   const submitUsernameBtn = document.getElementById('submit-username-btn');
+  const questionCounterElement = document.getElementById('question-counter');
 
   // The Quiz variables
   let shuffledQuestions, timerId, currentQuestionIndex = 0, scores, time;
@@ -77,6 +78,7 @@ window.addEventListener('DOMContentLoaded', function() {
     feedbackMessage.innerText = ''; 
     scores = 0;
     time = 20;
+    updateQuestionCounter();
     nextQuestion();
   }
 
@@ -152,6 +154,7 @@ window.addEventListener('DOMContentLoaded', function() {
     } else {
       setTimeout(endQuiz, 1000);
     }
+    updateQuestionCounter();
   }
 
   // Set the status class based on the answer
@@ -211,7 +214,7 @@ window.addEventListener('DOMContentLoaded', function() {
       outOfTimeMessage.innerText = 'Time is up!';
       outOfTimeMessage.style.fontWeight = 'bold'; 
       outOfTimeMessage.style.fontSize = '24px'; 
-      outOfTimeMessage.style.color = 'red'; 
+      outOfTimeMessage.style.color = ''; 
       outOfTimeMessage.classList.add('time-up');
       answersButtonsElement.appendChild(outOfTimeMessage);
 
@@ -224,7 +227,14 @@ window.addEventListener('DOMContentLoaded', function() {
       } else {
         setTimeout(endQuiz, 2000);
       }
+      updateQuestionCounter();
     }
+
+  }
+
+  // Update the question counter
+  function updateQuestionCounter() {
+    questionCounterElement.innerText = `${currentQuestionIndex + 1}/${shuffledQuestions.length}`;
   }
 
   // Quiz questions 
