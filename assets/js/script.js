@@ -214,7 +214,7 @@ window.addEventListener('DOMContentLoaded', function() {
       outOfTimeMessage.innerText = 'Time is up!';
       outOfTimeMessage.style.fontWeight = 'bold'; 
       outOfTimeMessage.style.fontSize = '24px'; 
-      outOfTimeMessage.style.color = ''; 
+      outOfTimeMessage.style.color = 'red'; 
       outOfTimeMessage.classList.add('time-up');
       answersButtonsElement.appendChild(outOfTimeMessage);
 
@@ -229,9 +229,7 @@ window.addEventListener('DOMContentLoaded', function() {
       }
       updateQuestionCounter();
     }
-
   }
-
   // Update the question counter
   function updateQuestionCounter() {
     questionCounterElement.innerText = `${currentQuestionIndex + 1}/${shuffledQuestions.length}`;
