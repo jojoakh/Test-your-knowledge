@@ -74,6 +74,7 @@ window.addEventListener('DOMContentLoaded', function() {
     currentQuestionIndex = 0;
     questionSection.classList.remove('hide');
     finalScoreContainer.innerHTML = '';
+    feedbackMessage.innerText = ''; 
     scores = 0;
     time = 20;
     nextQuestion();
@@ -208,6 +209,9 @@ window.addEventListener('DOMContentLoaded', function() {
 
       const outOfTimeMessage = document.createElement('div');
       outOfTimeMessage.innerText = 'Time is up!';
+      outOfTimeMessage.style.fontWeight = 'bold'; 
+      outOfTimeMessage.style.fontSize = '24px'; 
+      outOfTimeMessage.style.color = 'red'; 
       outOfTimeMessage.classList.add('time-up');
       answersButtonsElement.appendChild(outOfTimeMessage);
 
