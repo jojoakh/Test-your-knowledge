@@ -1,13 +1,11 @@
 
 
 /* Asterisk wildcard selector to override default styles added by the browser */
-
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-
 /* General body styling */
 body {
    background-color: rgb(60, 124, 121);
@@ -17,16 +15,11 @@ body {
     font-size: medium;
     letter-spacing: 2.0px;
     height: 100vh;
-    padding: 20px;
-    
-    
-    
+    padding: 20px;   
 }
 
-
 header {
-    padding: 15px;
-    
+    padding: 15px;   
 }
 /* Image styling */
 img {
@@ -36,7 +29,6 @@ img {
    overflow: clip;
 }
   
-
 /* h1 styling */
 h1 {
     display: block;
@@ -45,22 +37,21 @@ h1 {
     margin-block-end: 0.67em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    font-weight: bold;
-   
+    font-weight: bold; 
 }
 
 p {
     line-height: 2em;
+    font-size: large;
 }
-
 /* Question section styling */
 #question {
     margin-top: 20px;
     margin-bottom: 20px;
+    font-size: large;
 }
 
 /* Button styling */
-
 button {
     line-height: 3em;
     background-color: rgba(147, 78, 0, 0.745);
@@ -69,7 +60,7 @@ button {
     padding: 5px 8px; 
     border: none;
     cursor: pointer;
-    font-size: large; 
+    font-size: medium; 
     margin: 5px; 
     transition: background-color 0.3s, transform 0.2s; 
 }
@@ -104,7 +95,6 @@ button:focus {
 /* Class to hide elements */
 .hide {
     display: none;
-   
   }
 
   /* Rules container styling */
@@ -128,9 +118,20 @@ button:focus {
   display: flex;
   flex-direction: column;
   font-weight: bold;
-
-  
 }
+
+.timer {
+    font-size: 1.5em;  
+    font-weight: bold;
+    margin-bottom: 10px; 
+    color: rgb(70, 1, 17);
+  }
+
+  #final-score-container {
+    margin-top: 20px;
+    font-size: large;
+    font-weight: bold;
+  }
 
 /* Feedback message styling */
 #feedback-message {
@@ -143,7 +144,6 @@ button:focus {
 @media screen and (min-width: 698px) {
     body {
         align-content: center;
-        
        }
     
        img {
@@ -153,18 +153,14 @@ button:focus {
 
        #rules-container {
         width: 60%;
-        height: 50%;
-    
-       
+        height: 50%;   
       }
        
         #answers-buttons {
           
             max-width: 30%;
             display: flex;
-            margin: auto;
-            
-           
+            margin: auto;         
      }
         
      button {
@@ -173,17 +169,14 @@ button:focus {
     
      #username-input {
         width: 30%;
-     }
-     
+     } 
 }
-
 
 /* Responsive design for larger screens (laptops and desktops) */
 @media screen and (min-width: 995px) {
    
    body {
     align-content: center;
-    
    }
 
    img {
@@ -195,17 +188,13 @@ button:focus {
     width: 50%;
     font-size: large;
     height: 40%;
-
-   
   }
    
     #answers-buttons {
       
         max-width: 30%;
         display: flex;
-        margin: auto;
-        
-       
+        margin: auto;     
  }
     
  button {
@@ -234,9 +223,7 @@ button:focus {
           
             max-width: 30%;
             display: flex;
-            margin: auto;
-            
-           
+            margin: auto;   
      }
         
      button {
@@ -245,8 +232,5 @@ button:focus {
     
      #username-input {
         width: 20%;
-     }
-    
-     
-    
+     }  
 }

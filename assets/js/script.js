@@ -9,6 +9,7 @@ window.addEventListener('DOMContentLoaded', function() {
   const questionElement = document.getElementById('question');
   const answersButtonsElement = document.getElementById('answers-buttons');
   const finalScoreContainer = document.getElementById('final-score-container');
+  const feedbackMessage = document.getElementById('feedback-message');
   const timerElement = document.createElement('div');
   timerElement.classList.add('timer');
   const usernameSection = document.getElementById('username-section');
@@ -25,6 +26,34 @@ window.addEventListener('DOMContentLoaded', function() {
   startButton.addEventListener('click', startQuiz);
   submitUsernameBtn.addEventListener('click', submitUsername);
 
+  // Handle username submission 
+  function submitUsername() {
+    username = usernameInput.value.trim();
+    if (username !== '') {
+      finalScoreContainer.innerHTML = ''; 
+
+      const usernameDisplay = document.createElement('div');
+      usernameDisplay.innerText = `Username: ${username}`;
+      finalScoreContainer.appendChild(usernameDisplay);
+      
+      const scoreDisplay = document.createElement('div');
+      scoreDisplay.innerText = `Your final score is: ${scores}/${shuffledQuestions.length}`;
+      finalScoreContainer.appendChild(scoreDisplay);
+
+      const restartButton = document.createElement('button');
+      restartButton.innerText = 'Restart Quiz';
+      restartButton.classList.add('btn', 'restart-btn');
+      restartButton.addEventListener('click', startQuiz);
+      finalScoreContainer.appendChild(restartButton);
+
+      showFeedback(scores, shuffledQuestions.length);
+
+      usernameSection.classList.add('hide');
+    } else {
+      alert('Please enter a username.');
+    }
+  }
+
   // Function to display the quiz rules container
   function displayRules() {
     rulesContainer.classList.remove('hide');
@@ -34,13 +63,9 @@ window.addEventListener('DOMContentLoaded', function() {
   function closeRules() {
     rulesContainer.classList.add('hide');
   }
- 
 
- // Starts the quiz
+  // Starts the quiz
   function startQuiz() {
-    // start the timer with 1-second intervals
-    timerId = setInterval(timeTick, 1000);
-
     startButton.classList.add('hide');
     startSection.classList.add('hide');
 
@@ -50,7 +75,7 @@ window.addEventListener('DOMContentLoaded', function() {
     questionSection.classList.remove('hide');
     finalScoreContainer.innerHTML = '';
     scores = 0;
-    time = 10;
+    time = 20;
     nextQuestion();
   }
 
@@ -63,25 +88,24 @@ window.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // // Learnt this concept below from Web Dev Simplified on YT
   // Display question and the options
   function showQuestion(question) {
     questionElement.innerText = question.question;
     answersButtonsElement.innerHTML = '';
+    answersButtonsElement.appendChild(timerElement);  
+    questionElement.insertAdjacentElement('afterend', timerElement); 
     question.options.forEach(option => {
       const button = document.createElement('button');
       button.innerText = option;
       button.classList.add('btn');
-
-      // Mark the correct answer with data attribute
       if (option === question.answer) {
         button.dataset.correct = true;
       }
       button.addEventListener('click', selectAnswer);
       answersButtonsElement.appendChild(button);
     });
-    answersButtonsElement.appendChild(timerElement);
     timerElement.textContent = `Time left: ${time} seconds`;
+    startTimer();
   }
 
   // Function to reset the quiz for the next question
@@ -90,7 +114,12 @@ window.addEventListener('DOMContentLoaded', function() {
     while (answersButtonsElement.firstChild) {
       answersButtonsElement.removeChild(answersButtonsElement.firstChild);
     }
-   
+  }
+
+  function startTimer() {
+    clearInterval(timerId); // Clear existing timer before starting a new one
+    time = 20;
+    timerId = setInterval(timeTick, 1000);
   }
 
   // Handle answer selection
@@ -115,8 +144,10 @@ window.addEventListener('DOMContentLoaded', function() {
 
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
       currentQuestionIndex++;
-      setTimeout(nextQuestion, 1000);
-      time = 10;
+      setTimeout(() => {
+        time = 20;
+        nextQuestion();
+      }, 1000);
     } else {
       setTimeout(endQuiz, 1000);
     }
@@ -137,16 +168,6 @@ window.addEventListener('DOMContentLoaded', function() {
     element.classList.remove('wrong');
   }
 
-  // Handle username submission
-  function submitUsername() {
-    username = usernameInput.value.trim();
-    if (username !== '') {
-      displayFinalScore();
-    } else {
-      alert('Please enter a username to view your final score.');
-    }
-  }
-
   // Function to end the quiz
   function endQuiz() {
     clearInterval(timerId);
@@ -154,29 +175,51 @@ window.addEventListener('DOMContentLoaded', function() {
     questionSection.classList.add('hide');
     usernameSection.classList.remove('hide');
   }
-// Display the final score and restart the quiz
-  function displayFinalScore() {
-    usernameSection.classList.add('hide');
-    finalScoreContainer.innerHTML = '';
-    finalScoreContainer.classList.remove('hide');
-    const scoreMessage = document.createElement('div');
-    scoreMessage.innerText = `Your final score is: ${scores}/${shuffledQuestions.length}`;
-    scoreMessage.classList.add('final-score-message');
-    finalScoreContainer.appendChild(scoreMessage);
-    const restartButton = document.createElement('button');
-    restartButton.innerText = 'Restart Quiz';
-    restartButton.classList.add('btn', 'restart-btn');
-    restartButton.addEventListener('click', startQuiz);
-    finalScoreContainer.appendChild(restartButton);
+
+  function showFeedback(score, total) {
+    const percentage = (score / total) * 100;
+    let message = '';
+    if (percentage === 100) {
+      message = 'Perfect score! You know your geography very well!';
+    } else if (percentage >= 80) {
+      message = 'Great job! You have excellent knowledge of geography.';
+    } else if (percentage >= 50) {
+      message = 'Good effort! You have a decent understanding of geography.';
+    } else {
+      message = 'Keep practicing! You can improve your geography knowledge.';
+    }
+    feedbackMessage.innerText = message;
   }
 
-  
-   // Timer countdown
+  // Timer countdown
   function timeTick() {
     time--;
     timerElement.textContent = `Time left: ${time} seconds`;
     if (time <= 0) {
-      endQuiz();
+      clearInterval(timerId); // Stop the timer
+
+      // Provide feedback for time running out
+      Array.from(answersButtonsElement.children).forEach(button => {
+        button.disabled = true;
+        if (button.dataset.correct === 'true') {
+          button.style.backgroundColor = 'green';
+        }
+      });
+
+      const outOfTimeMessage = document.createElement('div');
+      outOfTimeMessage.innerText = 'Time is up!';
+      outOfTimeMessage.classList.add('time-up');
+      answersButtonsElement.appendChild(outOfTimeMessage);
+
+      if (shuffledQuestions.length > currentQuestionIndex + 1) {
+        currentQuestionIndex++;
+        setTimeout(() => {
+          time = 20;
+          nextQuestion();
+        }, 2000);
+      } else {
+        setTimeout(endQuiz, 2000);
+      }
     }
   }
 
