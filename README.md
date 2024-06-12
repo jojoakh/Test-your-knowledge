@@ -175,6 +175,18 @@ I've tested my deployed project for responsiveness issues.
 
 ## Bugs
 
+ - During my code validation process with [HTML W3C Validator](https://validator.w3.org) i got an error and a warning due to duplicated ID 
+
+    ![screenshot](documentation/screenshot-html-bug.png)
+    
+    - To fix this, I changed the ID name.
+
+- In my js, i had an error were the game end when the time is up.
+    - To fix this, i removed the call to endquiz in my timetick function and updated the timetick function to move to the next question when time runs out.
+
+
+
+
 ## Deployment
 
 The site was deployed to GitHub Pages. The steps to deploy are as follows:
