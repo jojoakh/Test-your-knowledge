@@ -78,6 +78,70 @@ The image used for this project is a picture of a map, just to show the users th
 
 ![Final Scores](documentation/screenshot-quiz-end.png)
 
+### Future Features
+
+-  Allow questions with images as answer choices alongside text options. 
+- Include open-ended questions where users can type in their answers.
+
+## Tools & Technologies Used
+
+- [![Git](https://img.shields.io/badge/Git-grey?logo=git&logoColor=F05032)](https://git-scm.com) used for version control. (`git add`, `git commit`, `git push`)
+- [![GitHub](https://img.shields.io/badge/GitHub-grey?logo=github&logoColor=181717)](https://github.com) used for secure online code storage.
+- [![Gitpod](https://img.shields.io/badge/Gitpod-grey?logo=gitpod&logoColor=FFAE33)](https://gitpod.io) used as a cloud-based IDE for development.
+- [![HTML](https://img.shields.io/badge/HTML-grey?logo=html5&logoColor=E34F26)](https://en.wikipedia.org/wiki/HTML) used for the main site content.
+- [![CSS](https://img.shields.io/badge/CSS-grey?logo=css3&logoColor=1572B6)](https://en.wikipedia.org/wiki/CSS) used for the main site design and layout.
+- [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-grey?logo=githubpages&logoColor=222222)](https://pages.github.com) used for hosting the deployed front-end site.
+- [![Javascript](https://img.shields.io/badge/javascript-grey?logo=javascript&logoColor=528DD7)](https://sv.wikipedia.org/wiki/Javascript) used to make the site interactive.
+- [![Markdown Builder](https://img.shields.io/badge/Markdown_Builder-grey?logo=markdown&logoColor=000000)](https://tim.2bn.dev/markdown-builder) used to generate README/TESTING templates.
+- [![Balsamiq](https://img.shields.io/badge/Balsamiq-grey?logo=balsamiq&logoColor=000000)](https://balsamiq.com/) used to create wireframes in early development.
+
+## Testing
+
+#### Manual Testing
+
+| Test | Result |
+|--|--|
+|When start quiz is clicked, it initiates the quiz by shuffling questions, resetting variables, hiding the start section, and showing the first question.| Pass |
+|Questions display randomly|Pass|
+|When the rules button is clicked the rules pops up|Pass|
+|The rules button closes when user clicks the close button|Pass|
+|When quiz starts the countdown begins |Pass|
+|When user selects answer, new question and answers are pulled|Pass|
+|When new question is clicked the time count restarts|Pass|
+|When the correct answer is clicked the button background color changes to green|Pass|
+|When the wrong answer is clicked the button background color changes to red|Pass|
+|Username section appears after the quiz to prompt users to enter a username for the final score display|Pass|
+|Final score container shows the username, score, restart button, and optional feedback message|Pass|
+|When the user clicks restart quiz the page reloads back to the start|Pass|
+
+## Code Validation
+
+### HTML
+
+I have used the recommended [HTML W3C Validator](https://validator.w3.org) to validate all of my HTML files.
+
+| Page | screenshot | Notes |
+| --- | --- | --- |
+| Home | ![screenshot](documentation/screenshot-html-validation.png) | Pass: No Errors |
+
+### CSS
+
+I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate all of my CSS files.
+
+| File | Screenshot | Notes |
+| --- | --- | --- | 
+| style.css | ![screenshot](documentation/screenshot-css-validation.png) | Pass: No Errors |
+
+### JavaScript
+
+I have used the recommended [JShint Validator](https://jshint.com) to validate all of my JS files.
+
+| File | Screenshot | Notes |
+| --- | --- | --- |
+| script.js | ![screenshot](documentation/screenshot-jshint.png) | Pass: No Warnings |
+
+
+
 
 
 
