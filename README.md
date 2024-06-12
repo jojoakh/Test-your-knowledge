@@ -156,6 +156,57 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 | Opera | ![screenshot](documentation/screenshot-opera-mini.png) | ![screenshot](documentation/screenshot-opera-mini-game.png) | Works as expected |
 | Edge | ![screenshot](documentation/screenshot-edge.png) | ![screenshot](documentation/screenshot-edge-game-area.png)  | Works as expected |
 
+## Responsiveness
+
+I've tested my deployed project for responsiveness issues.
+
+| Device | Home | Game Area | Username | Scores | Notes |
+| --- | --- | --- | --- | --- | --- |
+| Mobile (DevTools) | ![screenshot](documentation/screenshot-mobile-devtool-home.png) | ![screenshot](documentation/screenshot-mobile-devtool-game.png) | ![screenshot](documentation/screenshot-mobile-devtool-username.png) | ![screenshot](documentation/screenshot-mobile-devtool-scores.png) | Works as expected |
+| Tablet (DevTools) | ![screenshot](documentation/screenshot-tablet-devtool-game.png) | ![screenshot](documentation/screenshot-tablet-devtool-game.png) | ![screenshot](documentation/screenshot-tablet-devtool-username.png) | ![screenshot](documentation/screenshot-tablet-devtool-scores.png) | Works as expected |
+| Desktop | ![screenshot](documentation/screenshot-desktop-devtool-home.png) | ![screenshot](documentation/screenshot-desktop-devtool-game.png) | ![screenshot](documentation/screenshot-desktop-devtool-username.png) | ![screenshot](documentation/screenshot-desktop-devtool-scores.png) | Works as expected |
+
+
+## Bugs
+
+## Deployment
+
+The site was deployed to GitHub Pages. The steps to deploy are as follows:
+
+- In the [GitHub repository](https://github.com/jojoakh/Test-your-knowledge.git), navigate to the Settings tab 
+- From the source section drop-down menu, select the **Main** Branch, then click "Save".
+- The page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+ 
+ [Live link](https://jojoakh.github.io/Test-your-knowledge/)
+
+### Local Deployment
+
+This project can be cloned or forked in order to make a local copy on your own system.
+
+#### Cloning
+
+You can clone the repository by following these steps:
+
+1. Go to the [GitHub repository](https://github.com/jojoakh/Test-your-knowledge.git) 
+2. Locate the Code button above the list of files and click it 
+3. Select if you prefer to clone using HTTPS, SSH, or GitHub CLI and click the copy button to copy the URL to your clipboard
+4. Open Git Bash or Terminal
+5. Change the current working directory to the one where you want the cloned directory
+6. In your IDE Terminal, type the following command to clone my repository:
+	- `git clone https://github.com/jojoakh/Test-your-knowledge.git`
+7. Press Enter to create your local clone.
+
+
+#### Forking
+
+By forking the GitHub Repository, we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original owner's repository.
+You can fork this repository by using the following steps:
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/jojoakh/Test-your-knowledge.git)
+2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
+
+
 
 
 
