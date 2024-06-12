@@ -6,7 +6,7 @@
 
 >The user has the option to read the rules of the game to better understand the format of the quiz before clicking start quiz.
 
-> The quiz consist of random questions for all over the world. At the end the of the game, the user must enter a username to view the final scores. 
+> The quiz consist of random questions from all over the world. At the end the of the game, the user must enter a username to view the final scores. 
 
 ![Responsive Mockup](documentation/screenshot-responsive.png)
 
@@ -31,7 +31,7 @@ I used [coolers](https://coolors.co/f5f5f5-460111-3c7c79-934e00-132827) generate
 
 ### Image
 
-The image used for this project is a picture of a map, just to show the users the area the site is focused on.
+The image used for this project is a picture of a map, just to show the users the quiz area of focus.
 
 ## Wireframes
 
@@ -125,7 +125,7 @@ The image used for this project is a picture of a map, just to show the users th
 |When the wrong answer is clicked the button background color changes to red|Pass|
 |Username section appears after the quiz to prompt users to enter a username for the final score display|Pass|
 |Final score container shows the username, score, restart button, and optional feedback message|Pass|
-|When the user clicks restart quiz the page reloads back to the start|Pass|
+|When the user clicks restart quiz the page reloads back to the start the quiz|Pass|
 
 ## Code Validation
 
@@ -239,7 +239,7 @@ You can fork this repository by using the following steps:
 | --- | --- | --- |
 | [Icons](https://icons8.com/icons/set/geography) | Favicon | Used as the favicon of the site |
 | [Web Dev](https://www.youtube.com/watch?v=riDzcEQbX6k&t=59s) | display questions | the video helped me to understand some concepts |
-| [Code institute](https://learn.codeinstitute.net/) | Entire project | Followed what i learnt on the course |
+| [Code institute](https://learn.codeinstitute.net/) | Entire project | implemented everything i have learnt so far in this project |
 ### Media
 
 | Source | Location | Type | Notes |
@@ -248,9 +248,9 @@ You can fork this repository by using the following steps:
 
 ### Acknowledgement
 
-- I would like to say a big thank you to my mentor for this project, [Alan Bushell](https://github.com/Alan-Bushell) for his support throughout the development of this project.
+- I would like to say a big thank you to my mentor, [Alan Bushell](https://github.com/Alan-Bushell) for his support and feedbacks throughout the development of this project.
 - I would like to thank my lovely husband for being there all the time i needed his help and for supporting me to take this step into software development.
-- I would like to thank the [Tutor Assistance](https://learn.codeinstitute.net/ci_support/diplomainfullstacksoftwarecommoncurriculum/tutor) for their help with troubleshooting and debugging some project issues.
+- I would like to thank the [Tutor Assistance](https://learn.codeinstitute.net/ci_support/diplomainfullstacksoftwarecommoncurriculum/tutor) for their help with debugging some project issues.
 
 
 
