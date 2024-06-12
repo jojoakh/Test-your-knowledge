@@ -206,11 +206,26 @@ You can fork this repository by using the following steps:
 2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
 3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
 
+## Credits
+
+### Content
+
+| Source | Location | Notes |
+| --- | --- | --- |
+| [Icons](https://icons8.com/icons/set/geography) | Favicon | Used as the favicon of the site |
+| [Web Dev](https://www.youtube.com/watch?v=riDzcEQbX6k&t=59s) | display questions | the video helped me to understand some concepts |
+| [Code institute](https://learn.codeinstitute.net/) | Entire project | Followed what i learnt on the course |
+### Media
+
+| Source | Location | Type | Notes |
+| --- | --- | --- | --- |
+[Pexels](https://www.pexels.com/photo/world-map-with-country-names-7412072/) | home page | image | header section image |
 
 ### Acknowledgement
 
 - I would like to say a big thank you to my mentor for this project, [Alan Bushell](https://github.com/Alan-Bushell) for his support throughout the development of this project.
 - I would like to thank my lovely husband for being there all the time i needed his help and for supporting me to take this step into software development.
+- I would like to thank the [Tutor Assistance](https://learn.codeinstitute.net/ci_support/diplomainfullstacksoftwarecommoncurriculum/tutor) for their help with troubleshooting and debugging some project issues.
 
 
 
