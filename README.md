@@ -9,6 +9,13 @@
 > The quiz consist of random questions for all over the world. At the end the of the game, the user must enter a username to view the final scores. 
 
 ![Responsive Mockup](documentation/screenshot-responsive.png)
+
+### Project goals
+> The goal of the quiz is to test the users knowledge on how well they know the countries all over the world.
+
+> My target audience for the project are those who are interested in geography, and those who love to travel around the world.
+
+
 ## UX
 
 ### Color Scheme
@@ -30,11 +37,8 @@ The image used for this project is a picture of a map, just to show the users th
 
 ## Features
 
-
-
 - **Welcome Image**
 ![Welcome Message](documentation/screenshot-header-image.png)
-
 
 - **Game Area**    
     - This area shows the start button and the rules button.
@@ -82,6 +86,8 @@ The image used for this project is a picture of a map, just to show the users th
 
 -  Allow questions with images as answer choices alongside text options. 
 - Include open-ended questions where users can type in their answers.
+- I would like to be able to display high scores.
+ 
 
 ## Tools & Technologies Used
 

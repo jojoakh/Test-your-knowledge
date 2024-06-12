@@ -278,6 +278,16 @@ window.addEventListener('DOMContentLoaded', function() {
       question: "How many countries still have the shilling as currency?",
       answer: "Four",
       options: ["Two", "Four", "Three", "Five"]
+    },
+    {
+      question: "Which country has the most castles in the world?",
+      answer: "Germany",
+      options: ["Germany", "Finland", "Norway", "Spain"]
+    },
+    {
+      question: "Which animal appears on the flag of Sri Lanka?",
+      answer: "Lion",
+      options: ["Lion", "Tiger", "Elephant", "Dog"]
     }
   ];
 });
