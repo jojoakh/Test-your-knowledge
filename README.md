@@ -35,6 +35,13 @@ The image used for this project is a picture of a map, just to show the users th
 
 ## Wireframes
 
+| Page | Mobile | Desktop | 
+| --- | --- | --- |
+| Home | ![screenshot](documentation/screenshot-mobile-wireframe-home.png) | ![screenshot](documentation/screenshot-wireframe-home.png) | 
+| Quiz Area | ![screenshot](documentation/screenshot-mobile-wireframe-questions.png) | ![screenshot](documentation/screenshot-wireframe-question.png) | 
+| Username Area | ![screenshot](documentation/screenshot-mobile-wireframe-username.png) | ![screenshot](documentation/screenshot-wireframe-username.png) | 
+| Score Area | ![screenshot](documentation/screenshot-wireframe-score-mobile.png) | ![screenshot](documentation/screenshot-wireframe-score.png) | 
+
 ## Features
 
 - **Welcome Image**

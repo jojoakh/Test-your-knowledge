@@ -186,13 +186,13 @@ window.addEventListener('DOMContentLoaded', function() {
     const percentage = (score / total) * 100;
     let message = '';
     if (percentage === 100) {
-      message = `'Perfect score! ${username} you know your geography very well!'`;
+      message = `Perfect score! ${username} you know your geography very well!`;
     } else if (percentage >= 80) {
-      message = `'Great job! ${username} you have excellent knowledge of geography.'`;
+      message = `Great job! ${username} you have excellent knowledge of geography.`;
     } else if (percentage >= 50) {
-      message = `'Good effort! ${username} you have a decent understanding of geography.'`;
+      message = `Good effort! ${username} you have a decent understanding of geography.`;
     } else {
-      message = `'Keep practicing! ${username} you can improve your geography knowledge.'`;
+      message = `Keep practicing! ${username} you can improve your geography knowledge.`;
     }
     feedbackMessage.innerText = message;
   }
