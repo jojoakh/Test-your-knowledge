@@ -140,6 +140,24 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate a
 | --- | --- | --- |
 | script.js | ![screenshot](documentation/screenshot-jshint.png) | Pass: No Warnings |
 
+### Lighthouse Audit
+
+| Page | Mobile | Desktop | Notes |
+| --- | --- | --- | --- |
+| Home | ![screenshot](documentation/screenshot-lighthouse-mobile.png) | ![screenshot](documentation/screenshot-lighthouse-desktop.png) | Minor Warnings |
+
+## Browser Compatibility
+
+I've tested my deployed project on multiple browsers to check for compatibility issues.
+
+| Browser | Home | Game Area | Notes |
+| --- | --- | --- | --- | 
+| Chrome | ![screenshot](documentation/screenshot-chrome.png) | ![screenshot](documentation/screenshot-chrome-game.png) | Works as expected |
+| Opera | ![screenshot](documentation/screenshot-opera-mini.png) | ![screenshot](documentation/screenshot-opera-mini-game.png) | Works as expected |
+| Edge | ![screenshot](documentation/screenshot-edge.png) | ![screenshot](documentation/screenshot-edge-game-area.png)  | Works as expected |
+
+
+
 
 
 
