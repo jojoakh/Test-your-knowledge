@@ -70,8 +70,8 @@ window.addEventListener('DOMContentLoaded', function() {
     startButton.classList.add('hide');
     startSection.classList.add('hide');
 
-    // Shuffle the questions to show randomly
-    shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+    // Shuffle the questions and select only the first 6
+    shuffledQuestions = questions.sort(() => Math.random() - 0.5).slice(0, 6);
     currentQuestionIndex = 0;
     questionSection.classList.remove('hide');
     finalScoreContainer.innerHTML = '';
@@ -91,6 +91,7 @@ window.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  // Learnt this concept below from Web Dev Simplified on YT
   // Display question and the options
   function showQuestion(question) {
     questionElement.innerText = question.question;
@@ -157,6 +158,7 @@ window.addEventListener('DOMContentLoaded', function() {
     updateQuestionCounter();
   }
 
+  // Learnt this concept below from Web Dev Simplified on YT
   // Set the status class based on the answer
   function setStatusClass(element, correct) {
     clearStatusClass(element);
@@ -179,7 +181,7 @@ window.addEventListener('DOMContentLoaded', function() {
     questionSection.classList.add('hide');
     usernameSection.classList.remove('hide');
   }
-
+ // Function to show feedbacks
   function showFeedback(score, total) {
     const percentage = (score / total) * 100;
     let message = '';
@@ -266,6 +268,16 @@ window.addEventListener('DOMContentLoaded', function() {
       question: "What percentage of the River Nile is located in Egypt?",
       answer: "22 percent",
       options: ["22 percent", "18 percent", "28 percent", "12 percent"]
+    },
+    {
+      question: "How many boroughs are there in New York City?",
+      answer: "Five",
+      options: ["Two", "Eight", "Three", "Five"]
+    },
+    {
+      question: "How many countries still have the shilling as currency?",
+      answer: "Four",
+      options: ["Two", "Four", "Three", "Five"]
     }
   ];
 });
