@@ -163,7 +163,7 @@ I've tested my deployed project for responsiveness issues.
 | Device | Home | Game Area | Username | Scores | Notes |
 | --- | --- | --- | --- | --- | --- |
 | Mobile (DevTools) | ![screenshot](documentation/screenshot-mobile-devtool-home.png) | ![screenshot](documentation/screenshot-mobile-devtool-game.png) | ![screenshot](documentation/screenshot-mobile-devtool-username.png) | ![screenshot](documentation/screenshot-mobile-devtool-scores.png) | Works as expected |
-| Tablet (DevTools) | ![screenshot](documentation/screenshot-tablet-devtool-game.png) | ![screenshot](documentation/screenshot-tablet-devtool-game.png) | ![screenshot](documentation/screenshot-tablet-devtool-username.png) | ![screenshot](documentation/screenshot-tablet-devtool-scores.png) | Works as expected |
+| Tablet (DevTools) | ![screenshot](documentation/screenshot-tablet-devtool-home.png) | ![screenshot](documentation/screenshot-tablet-devtool-game.png) | ![screenshot](documentation/screenshot-tablet-devtool-username.png) | ![screenshot](documentation/screenshot-tablet-devtool-scores.png) | Works as expected |
 | Desktop | ![screenshot](documentation/screenshot-desktop-devtool-home.png) | ![screenshot](documentation/screenshot-desktop-devtool-game.png) | ![screenshot](documentation/screenshot-desktop-devtool-username.png) | ![screenshot](documentation/screenshot-desktop-devtool-scores.png) | Works as expected |
 
 
@@ -205,6 +205,13 @@ You can fork this repository by using the following steps:
 1. Log in to GitHub and locate the [GitHub Repository](https://github.com/jojoakh/Test-your-knowledge.git)
 2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
 3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
+
+
+### Acknowledgement
+
+- I would like to say a big thank you to my mentor for this project, [Alan Bushell](https://github.com/Alan-Bushell) for his support throughout the development of this project.
+- I would like to thank my lovely husband for being there all the time i needed his help and for supporting me to take this step into software development.
+
 
 
 
